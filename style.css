@@ -1,0 +1,60 @@
+:root {
+  --cell-size: 10px;
+  --num-cols: 81;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+.cntr {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(var(--cell-size) * var(--num-cols));
+}
+.cell {
+  /* border: 1px solid black; */
+  height: var(--cell-size);
+  width: var(--cell-size);
+}
+.empty {
+  background-color: white;
+}
+.filled {
+  border: 1px solid white;
+  background-color: rgb(0, 68, 255);
+  animation-name: cellwave;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-in-out;
+}
+.wall {
+    background-color: black;
+}
+@keyframes cellwave {
+  0% {
+    border-radius: 100%;
+    background-color: rgb(0, 255, 106);
+    border: calc(var(--cell-size) * 0.4) solid white;
+  }
+  50% {
+    boder-radius: 75%;
+    background-color: rgb(0, 247, 255);
+    border: calc(var(--cell-size) * 0.3) solid white;
+  }
+  75% {
+    boder-radius: 50%;
+    background-color: rgb(0, 204, 255);
+    border: calc(var(--cell-size) * 0.2) solid white;
+  }
+  100% {
+    border: 1px solid white;
+    background-color: rgb(0, 68, 255);
+  }
+}
